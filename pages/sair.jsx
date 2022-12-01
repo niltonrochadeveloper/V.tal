@@ -10,7 +10,7 @@ export default function Sair() {
     useEffect(() => {
         window.localStorage.clear()
         router.replace('/')
-    }, [])
+    }, [router])
 
     return (
         <>
