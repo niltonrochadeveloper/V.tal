@@ -49,3 +49,74 @@ label {
     font-size: 16px;
   }
 }
+
+
+
+/* INDEX */
+
+@media (min-width: 767px) {
+  .grid {
+    display: grid;
+  }
+  
+  .logo {
+    grid-area: logo;
+  }
+  
+  .nav {
+    grid-area: nav;
+  }
+  
+  .sidenav {
+    grid-area: sidenav;
+    overflow-y: scroll;
+  }
+  
+  .content {
+    grid-area: content;
+    overflow-y: scroll;
+  }
+  
+  .grid-template-areas {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    grid-template: 50px 1fr / 200px 3fr 280px;
+    grid-template-areas:
+    "logo nav nav"
+    "sidenav content content"
+    "sidenav content content"
+    ;
+  }
+}
+
+
+small {
+  margin: 0;
+  padding: 0;
+  line-height: 10px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+  padding: 5px;
+}
+
+li:hover {
+  background-color: black;
+  color: #fff;
+}
+
+
+/* menu */
+
+.menu-list {
+}

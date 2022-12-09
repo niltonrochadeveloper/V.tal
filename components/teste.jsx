@@ -7,22 +7,13 @@ import Link from 'next/link';
 
 //components
 import Layout from '../components/layouts/layout';
-import Teste from '../components/teste';
 
-export default function Home() {
+export default function Teste() {
 
   var [ loading, setLoading ] = useState(false)
   var [ user, setUser ] = useState(false)
 
   const router = useRouter()
-
-  useEffect(() => {
-    if(window.localStorage.user) {
-      setUser(window.localStorage.user)
-    } else {
-      router.push('/login')
-    }
-  }, [])
 
   if(!loading) {
 
@@ -45,13 +36,11 @@ export default function Home() {
   if(loading) {
     return (
       <>
-        <Layout>
-          <section>
-                <div className='grid grid-template-content'>
-                <Teste />
-                </div>
-            </section>
-        </Layout>
+        <section>
+            <div className='grid grid-template-content'>
+            content
+            </div>
+        </section>
       </>
     )
   }
