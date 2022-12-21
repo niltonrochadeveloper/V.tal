@@ -25,7 +25,7 @@ export default function Teste() {
       <>
         <section>
             <div>
-              <h1>Loading</h1>
+              <h1>Carregando Informações</h1>
             </div>
         </section>
   

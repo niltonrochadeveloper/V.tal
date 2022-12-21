@@ -63,7 +63,7 @@ export default function Layout(props) {
         <section>
             <div className='grid grid-template-areas'>
             <div className="logo text-center p-3">
-                  <Image src="/images/vtal-icon.png" width={25} height={25}></Image>
+                  <Image src="/images/vtal-icon.png" width={25} height={25} alt="ícone vtal"></Image>
                 </div>
               <div className="sidenav">                
                 <div className='text-left p-3'>

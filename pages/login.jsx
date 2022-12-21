@@ -11,6 +11,10 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 
 
+//helpers
+import { validarCNPJ } from '../helpers/validarCNPJ'
+import { txtBoxFormat } from "../helpers/txtBoxFormat"
+
 
 export default function Sair() {
 
@@ -23,26 +27,30 @@ export default function Sair() {
     var [ cnpj, setCnpj ] = useState('')
 
     const schema = yup.object({
-        cnpj: yup.string().required('O campo CNPJ é obrigatório').max(16, 'CNPJ não pode ser menor que 16 caracteres').min(16, 'CNPJ deve conter no mínimo 16 caracteres'),
+        cnpj: yup.string().required('O campo CNPJ é obrigatório').max(18, 'CNPJ não pode ser menor que 16 caracteres').min(18, 'CNPJ deve conter no mínimo 16 caracteres'),
     }).required()
 
     const { register, handleSubmit, formState: {errors}, } = useForm({ resolver: yupResolver(schema) })
 
     const Submit = async () => {
 
-        window.localStorage.setItem('user', cnpj)
-        router.push('/')
-        // console.log(data.cnpj)
+        // cnpj = cnpj.replace('.', '').replace('.', '').replace('/', '').replace('-', '')
 
-        // if(!data.cnpj || typeof data.cnpj == undefined || data.cnpj == null || data.cnpj == '') {
-            
-        // }
+        if(validarCNPJ(cnpj)) {
+            window.localStorage.setItem('user', cnpj)
+            router.push('/')
+        } else {
+            console.log('não foi')
+        }
+        
+        
+        
     }
 
     return (
         <>
             <Head>
-                <title>Create Next App</title>
+                <title>V.tal</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 <meta name="description" content="Página de Login - V.Tal" />                
@@ -53,7 +61,7 @@ export default function Sair() {
                 <section className="container d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
                     <form className="border rounded-2 p-4" style={{maxWidth: '320px'}} onSubmit={handleSubmit(Submit)}>
                         <div className="text-center pt-3">
-                            <Image src='/images/vtal-icon.png' width={25} height={25}></Image>
+                            <Image src='/images/vtal-icon.png' width={25} height={25} alt='ícone do logo Vtal'></Image>
                         </div>
                         <div className="text-center py-3 ">
                             <p>Olá, seja bem-vindo!</p>
@@ -61,7 +69,7 @@ export default function Sair() {
                         </div>
                         <div className="form-group">
                             <label className="" htmlFor="cnpj">CNPJ</label>
-                            <input {...register("cnpj")} onClick={labelForm} onChange={(e) => setCnpj(e.target.value)} className="form-control" type="tel" name="cnpj" id="cnpj" maxLength={16} />
+                            <input {...register("cnpj")} onClick={labelForm} onKeyPress={(e) => txtBoxFormat(e.target.id, '99.999.999/9999-99', event)} onChange={(e) => setCnpj(e.target.value)} className="form-control" type="tel" name="cnpj" id="cnpj" maxLength={18} />
                         </div>
                         <small style={{color: 'red', display: 'block', padding: '5px 0 0 5px', fontSize: '10px'}}>{errors.cnpj?.message}</small>
                         <button type="submit" className="btn w-100 my-3" style={{backgroundColor: '#454543', color: '#ffffff'}}>Acessar</button>
