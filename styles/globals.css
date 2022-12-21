@@ -61,15 +61,19 @@ label {
   
   .logo {
     grid-area: logo;
+    background-color: rgb(49, 49, 49);
+    color: #fff;
   }
   
   .nav {
-    grid-area: nav;
+    grid-area: nav;    
   }
   
   .sidenav {
     grid-area: sidenav;
     overflow-y: scroll;
+    background-color: rgb(49, 49, 49);
+    color: #fff;
   }
   
   .content {
@@ -103,6 +107,7 @@ ul {
   gap: 5px;
   display: flex;
   flex-direction: column;
+  
 }
 
 li {
@@ -111,12 +116,16 @@ li {
 }
 
 li:hover {
-  background-color: black;
-  color: #fff;
+  background-color: rgb(43, 43, 43);  
+}
+
+li:active {
+  background-color: rgb(43, 43, 43);  
 }
 
 
 /* menu */
 
 .menu-list {
+  
 }
