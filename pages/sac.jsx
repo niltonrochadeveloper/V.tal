@@ -6,10 +6,10 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Sidebar from '../components/shared/sidebard';
 
-export default function Home(props) {
+export default function Sac(props) {
 
   var [ loading, setLoading ] = useState(false)
-  var [ home, setHome ] = useState(false)
+  var [ sac, setSac ] = useState(false)
   var [ user, setUser ] = useState(false)
 
   const router = useRouter()
@@ -18,7 +18,7 @@ export default function Home(props) {
 
     setTimeout(() => {
       setLoading(true)
-      setHome(true)
+      setSac(true)
     }, 1200)
 
     return (
@@ -33,12 +33,12 @@ export default function Home(props) {
     )
   }
 
-  if(loading && home) {
+  if(loading && sac) {
     return (
       <>
         <Sidebar children={<section>
                 <div className='grid grid-template-content'>
-                  Home
+                  Sac
                 </div>
             </section>} />
           

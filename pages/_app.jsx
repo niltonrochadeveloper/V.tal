@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import '../styles/globals.css'
+import Layout from '../components/layouts/layout'
 
 function MyApp({ Component, pageProps }) {
 
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }) {
     }
   }, [])
   return (
-    <Component {...pageProps} />
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   )
 
 }

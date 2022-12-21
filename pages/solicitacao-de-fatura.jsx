@@ -6,10 +6,10 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Sidebar from '../components/shared/sidebard';
 
-export default function Home(props) {
+export default function SolicitacaoDeFatura(props) {
 
   var [ loading, setLoading ] = useState(false)
-  var [ home, setHome ] = useState(false)
+  var [ solicitacaoDeFatura, setSolicitacaoDeFatura ] = useState(false)
   var [ user, setUser ] = useState(false)
 
   const router = useRouter()
@@ -18,7 +18,7 @@ export default function Home(props) {
 
     setTimeout(() => {
       setLoading(true)
-      setHome(true)
+      setSolicitacaoDeFatura(true)
     }, 1200)
 
     return (
@@ -33,12 +33,12 @@ export default function Home(props) {
     )
   }
 
-  if(loading && home) {
+  if(loading && solicitacaoDeFatura) {
     return (
       <>
         <Sidebar children={<section>
                 <div className='grid grid-template-content'>
-                  Home
+                  Solicitação de Fatura
                 </div>
             </section>} />
           

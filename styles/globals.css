@@ -79,13 +79,14 @@ label {
   .content {
     grid-area: content;
     overflow-y: scroll;
+    background: #f6f7fb;
   }
   
   .grid-template-areas {
     height: 100vh;
     margin: 0;
     padding: 0;
-    grid-template: 50px 1fr / 200px 3fr 280px;
+    grid-template: 70px 1fr / 260px 3fr 260px;
     grid-template-areas:
     "logo nav nav"
     "sidenav content content"
@@ -126,6 +127,19 @@ li:active {
 
 /* menu */
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(248, 248, 248, 0.2);
+  border-radius: 6px;
+}
+
 .menu-list {
-  
+  font-size: 14px;
 }
