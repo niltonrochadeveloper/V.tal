@@ -40,8 +40,8 @@ export default function Layout(props) {
                 <link rel="icon" href="/images/vtal-icon.png" />
         </Head>
         <section>
-            <div>
-              <h1>Loading</h1>
+            <div className='container d-flex justify-content-center align-items-center' style={{height: '100vh'}}>
+              <h1>Aguarde...</h1>
             </div>
         </section>
   

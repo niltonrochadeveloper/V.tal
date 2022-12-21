@@ -34,13 +34,18 @@ export default function Sair() {
 
     const Submit = async () => {
 
+        document.getElementById('submit').textContent = 'Enviando'
+        document.getElementById('submit').disabled
+
         // cnpj = cnpj.replace('.', '').replace('.', '').replace('/', '').replace('-', '')
 
         if(validarCNPJ(cnpj)) {
             window.localStorage.setItem('user', cnpj)
             router.push('/')
         } else {
-            console.log('não foi')
+            document.getElementById('submit').textContent = 'Tente novamente'
+            document.getElementById('submit').enabled
+            document.getElementById('error').textContent = 'CPF Inválido. Tente novamente.'
         }
         
         
@@ -54,14 +59,14 @@ export default function Sair() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 <meta name="description" content="Página de Login - V.Tal" />                
-                <link rel="icon" href="/images/vtal-icon.png" />
+                <link rel="icon" href="./images/vtal-icon.png" />
             </Head>
 
             <section className="">
                 <section className="container d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
                     <form className="border rounded-2 p-4" style={{maxWidth: '320px'}} onSubmit={handleSubmit(Submit)}>
                         <div className="text-center pt-3">
-                            <Image src='/images/vtal-icon.png' width={25} height={25} alt='ícone do logo Vtal'></Image>
+                            <Image src='./images/vtal-icon.png' width={25} height={25} alt='ícone do logo Vtal'></Image>
                         </div>
                         <div className="text-center py-3 ">
                             <p>Olá, seja bem-vindo!</p>
@@ -71,8 +76,8 @@ export default function Sair() {
                             <label className="" htmlFor="cnpj">CNPJ</label>
                             <input {...register("cnpj")} onClick={labelForm} onKeyPress={(e) => txtBoxFormat(e.target.id, '99.999.999/9999-99', event)} onChange={(e) => setCnpj(e.target.value)} className="form-control" type="tel" name="cnpj" id="cnpj" maxLength={18} />
                         </div>
-                        <small style={{color: 'red', display: 'block', padding: '5px 0 0 5px', fontSize: '10px'}}>{errors.cnpj?.message}</small>
-                        <button type="submit" className="btn w-100 my-3" style={{backgroundColor: '#454543', color: '#ffffff'}}>Acessar</button>
+                        {errors.cnpj?.message ? <small style={{color: 'red', display: 'block', padding: '5px 0 0 5px', fontSize: '10px'}}>{errors.cnpj?.message}</small> : <small id="error" style={{color: 'red', display: 'block', padding: '5px 0 0 5px', fontSize: '10px'}}></small>}
+                        <button id="submit" type="submit" className="btn w-100 my-3" style={{backgroundColor: '#454543', color: '#ffffff'}}>Acessar</button>
                     </form>
                 </section>
             </section>
